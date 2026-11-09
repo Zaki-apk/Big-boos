@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>BIG BOOS | متجر الملابس</title>
+  <meta name="description" content="BIG BOOS - أزياء رجالية ونسائية بلمسة عصرية. اطلب بسهولة عبر واتساب.">
+  <style>
+    :root{--bg:#0c0c0e;--panel:#171719;--gold:#e6bd62;--red:#ef4545;--text:#f7f4ed;--muted:#aaa6a0}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#0c0c0eeF;border-bottom:1px solid #ffffff14;backdrop-filter:blur(12px)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{font-weight:900;font-size:25px;letter-spacing:1px}.logo span{color:var(--gold)}
+    .links{display:flex;gap:22px;color:#d4d0c8;font-size:14px}.links a:hover{color:var(--gold)}
+    .hero{padding:78px 0 65px;background:radial-gradient(ellipse at 15% 15%,#6b171b55,transparent 38%),radial-gradient(ellipse at 85% 80%,#9c752b25,transparent 40%),linear-gradient(135deg,#171719,#09090a)}
+    .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px}
+    .eyebrow{color:var(--gold);font-weight:bold;letter-spacing:2px;font-size:13px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.12;margin:15px 0}
+    h1 span{color:var(--gold)}.hero p{color:#c5c0b8;line-height:1.9;max-width:520px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:8px;font-weight:bold;border:1px solid var(--gold);transition:.2s}
+    .primary{background:var(--gold);color:#17130a}.outline{color:var(--gold)}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .hero-art{min-height:300px;border:1px solid #e6bd6250;border-radius:18px;background:linear-gradient(145deg,#292326,#101012 65%);display:grid;place-items:center;position:relative;overflow:hidden}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #e6bd6244;border-radius:50%}
+    .hero-art:after{width:180px;height:180px}.boom{font-size:76px;position:relative;z-index:1;text-align:center;font-weight:900;color:var(--gold);text-shadow:0 8px 35px #e6bd6255}.boom small{display:block;font-size:24px;color:white;letter-spacing:5px}
+    section{padding:62px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:25px}
+    h2{font-size:30px;margin:0}.section-head p{color:var(--muted);margin:8px 0 0}
+    .categories{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .category{padding:28px;border:1px solid #ffffff18;border-radius:14px;background:linear-gradient(130deg,#1c1b1c,#111);min-height:145px;display:flex;align-items:end;justify-content:space-between}
+    .category strong{font-size:25px}.category span{color:var(--gold);font-size:13px}.category .symbol{font-size:42px}
+    .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:#19191b;border:1px solid #ffffff20;color:#ddd;padding:9px 15px;border-radius:30px;cursor:pointer}
+    .filter.active{background:var(--gold);color:#17130a;border-color:var(--gold);font-weight:bold}
+    input{background:#171719;border:1px solid #ffffff25;color:white;padding:11px 14px;border-radius:8px;min-width:210px;outline:none}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .product{background:var(--panel);border:1px solid #ffffff12;border-radius:13px;overflow:hidden}
+    .photo{height:230px;background:linear-gradient(145deg,#343035,#171719);display:grid;place-items:center;color:#e6bd62;font-size:58px}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .info{padding:16px}.tag{font-size:11px;color:var(--gold)}.info h3{margin:8px 0;font-size:17px}.price{color:#d4d0c8;font-size:13px;margin-bottom:14px}
+    .order{display:block;text-align:center;background:#1f7b49;color:white;padding:10px;border-radius:7px;font-weight:bold;font-size:14px}
+    .empty{text-align:center;color:var(--muted);padding:30px;display:none}
+    .about{background:#141416;border-block:1px solid #ffffff10}.about p{color:#c4bfb7;line-height:2;max-width:760px}
+    footer{padding:28px 0;color:#aaa6a0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .wa-float{position:fixed;bottom:18px;left:18px;background:#1fba68;color:#071b10;border-radius:50px;padding:13px 17px;font-weight:bold;z-index:20;box-shadow:0 8px 25px #0008}
+    @media(max-width:760px){.hero-inner{grid-template-columns:1fr}.hero{padding:55px 0}.hero-art{min-height:210px}.grid{grid-template-columns:repeat(2,1fr)}.photo{height:190px}.links{gap:12px;font-size:12px}.logo{font-size:21px}}
+    @media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:10px}.photo{height:150px}.info{padding:11px}.info h3{font-size:14px}.order{font-size:12px}.category{padding:18px;min-height:120px}.category strong{font-size:19px}.section-head{align-items:start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#">BIG <span>BOOS</span> 💥</a>
+  <nav class="links"><a href="#home">الرئيسية</a><a href="#categories">الأقسام</a><a href="#products">المنتجات</a><a href="#about">من نحن</a></nav>
+</div></header>
+<main>
+  <section class="hero" id="home"><div class="wrap hero-inner">
+    <div><div class="eyebrow">STYLE • CONFIDENCE • YOU</div>
+      <h1>لباسك يحكي<br><span>شخصيتك.</span></h1>
+      <p>اكتشف تشكيلة BIG BOOS للرجال والنساء. اختَر إطلالتك المفضلة واطلبها مباشرة عبر واتساب.</p>
+      <div class="actions"><a class="btn primary" href="#products">اكتشف المنتجات</a><a class="btn outline" href="#categories">تصفح الأقسام</a></div>
+    </div>
+    <div class="hero-art"><div class="boom">💥<small>BIG BOOS</small></div></div>
+  </div></section>
+  <section id="categories"><div class="wrap">
+    <div class="section-head"><div><h2>تسوّق حسب القسم</h2><p>اختَر القسم المناسب لك</p></div></div>
+    <div class="categories">
+      <a class="category" href="#products" onclick="setFilter('men')"><div><span>COLLECTION 01</span><br><strong>ملابس الرجال</strong></div><div class="symbol">👔</div></a>
+      <a class="category" href="#products" onclick="setFilter('women')"><div><span>COLLECTION 02</span><br><strong>ملابس النساء</strong></div><div class="symbol">👗</div></a>
+    </div>
+  </div></section>
+  <section id="products"><div class="wrap">
+    <div class="section-head"><div><h2>منتجاتنا</h2><p>هذه منتجات تجريبية — استبدلها بمنتجات المحل الحقيقية وأسعارها.</p></div></div>
+    <div class="toolbar"><div class="filters">
+      <button class="filter active" onclick="setFilter('all')">الكل</button>
+      <button class="filter" onclick="setFilter('men')">رجال</button>
+      <button class="filter" onclick="setFilter('women')">نساء</button>
+    </div><input id="search" type="search" placeholder="ابحث عن منتج..." oninput="render()"></div>
+    <div class="grid" id="grid"></div><div class="empty" id="empty">ما لقيناش منتجات بهذا الاسم.</div>
+  </div></section>
+  <section class="about" id="about"><div class="wrap"><h2>من نحن؟</h2><p>BIG BOOS متجر يهتم بالأناقة والاختيار العصري، ويجمع بين أزياء الرجال والنساء في مكان واحد. هدفنا نسهل عليك اكتشاف المنتجات والتواصل معنا لطلب ما يعجبك.</p></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> BIG BOOS. جميع الحقوق محفوظة.</span><span>أناقتك تبدأ من هنا 💥</span></div></footer>
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener">واتساب 💬</a>
+<script>
+const PHONE = "213792272675";
+const products = [
+ {name:"تيشيرت رجالي",cat:"men",label:"MEN",price:"السعر عند الطلب",emoji:"👕"},
+ {name:"سترة رجالية",cat:"men",label:"MEN",price:"السعر عند الطلب",emoji:"🧥"},
+ {name:"حذاء رجالي",cat:"men",label:"MEN",price:"السعر عند الطلب",emoji:"👟"},
+ {name:"فستان نسائي",cat:"women",label:"WOMEN",price:"السعر عند الطلب",emoji:"👗"},
+ {name:"حقيبة نسائية",cat:"women",label:"WOMEN",price:"السعر عند الطلب",emoji:"👜"},
+ {name:"حذاء نسائي",cat:"women",label:"WOMEN",price:"السعر عند الطلب",emoji:"👠"}
+];
+let current = "all";
+function setFilter(cat){
+ current=cat;
+ document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.textContent.trim()===(cat==="all"?"الكل":cat==="men"?"رجال":"نساء")));
+ render();
+}
+function render(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const list=products.filter(p=>(current==="all"||p.cat===current)&&p.name.toLowerCase().includes(q));
+ document.getElementById("grid").innerHTML=list.map(p=>`
+ <article class="product"><div class="photo">${p.emoji}</div><div class="info">
+ <div class="tag">${p.label}</div><h3>${p.name}</h3><div class="price">${p.price}</div>
+ <a class="order" target="_blank" rel="noopener" href="https://wa.me/${PHONE}?text=${encodeURIComponent("السلام عليكم، نحب نطلب: "+p.name+" من BIG BOOS. هل المنتج متوفر؟")}">اطلب عبر واتساب</a>
+ </div></article>`).join("");
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+document.getElementById("waFloat").href="https://wa.me/"+PHONE+"?text="+encodeURIComponent("السلام عليكم، تواصلت معكم من موقع BIG BOOS.");
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
